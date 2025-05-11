@@ -98,6 +98,8 @@ def extract():
         
     result = extract_text_only(url)
     return jsonify(result), 200 if result["status"] == "success" else 500
-
+@app.route("/health")
+def health():
+    return jsonify({"health": "good"}), 200
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, threaded=True)
